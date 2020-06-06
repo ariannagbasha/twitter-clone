@@ -2,6 +2,7 @@ import React from "react";
 import Spinner from "react-spinkit";
 import { connect } from "react-redux";
 import { login } from "../../redux";
+import { getMessages } from '../../redux/Messages/getMessages';
 import "./LoginForm.css";
 
 class LoginForm extends React.Component {
@@ -10,6 +11,7 @@ class LoginForm extends React.Component {
   handleLogin = e => {
     e.preventDefault();
     this.props.login(this.state);
+    this.props.getMessages()
   };
 
   handleChange = e => {
@@ -53,5 +55,5 @@ export default connect(
     loading: state.auth.login.loading,
     error: state.auth.login.error
   }),
-  { login }
+  { login, getMessages }
 )(LoginForm);
