@@ -9,19 +9,19 @@ import {
     createReducer
   } from "./helpers";
   
-  const url = domain + "/auth";
+  const url = domain + "/users"; 
   
   const REGISTER = createActions("registeruser");
   export const register = registerData => dispatch => {
     dispatch(REGISTER.START());
   
-    return fetch(url + "/register", {
+    return fetch(url, {
       method: "POST",
       headers: jsonHeaders,
       body: JSON.stringify(registerData)
     })
       .then(handleJsonResponse)
-      .then(result => dispatch(REGISTER.SUCCESS(result)))
+      .then(result => dispatch(REGISTER.SUCCESS(result))) // Result will be the object that I see on the Swagger docs under responses section
       .catch(err => Promise.reject(dispatch(REGISTER.FAIL(err))));
   };
   

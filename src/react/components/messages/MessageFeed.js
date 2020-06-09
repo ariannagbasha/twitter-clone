@@ -38,7 +38,7 @@ class MessageFeed extends Component {
                 <p>Text: {message.text}</p>
                 <p>Date: {message.createdAt}</p>
                 {message.username===this.props.user &&
-                <button>Delete this message CAUSE it's mine</button>
+                <button>Message</button>
                 }
                 </div>
                 </>

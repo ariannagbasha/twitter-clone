@@ -6,11 +6,11 @@ import { getMessages } from '../../redux/Messages/getMessages';
 import "./RegisterForm.css";
 
 class RegisterForm extends React.Component {
-  state = { username: "", password: "" };
+  state = { username: "", displayName: "" , password: "" };
 
   handleLogin = e => {
     e.preventDefault();
-    this.props.login(this.state);
+    this.props.register(this.state);
     this.props.getMessages()
   };
 
@@ -27,6 +27,14 @@ class RegisterForm extends React.Component {
           <input
             type="text"
             name="username"
+            autoFocus
+            required
+            onChange={this.handleChange}
+          />
+          <label htmlFor="username"> Set Display Name</label>
+          <input
+            type="text"
+            name="Display Name"
             autoFocus
             required
             onChange={this.handleChange}
