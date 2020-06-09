@@ -23,7 +23,7 @@ class RegisterForm extends React.Component {
     return (
       <React.Fragment>
         <form id="register-form" onSubmit={this.handleLogin}>
-          <label htmlFor="username">Username</label>
+          <label htmlFor="username"> Set Username</label>
           <input
             type="text"
             name="username"
@@ -31,7 +31,7 @@ class RegisterForm extends React.Component {
             required
             onChange={this.handleChange}
           />
-          <label htmlFor="password">Password</label>
+          <label htmlFor="password">Set Password</label>
           <input
             type="password"
             name="password"
@@ -39,7 +39,7 @@ class RegisterForm extends React.Component {
             onChange={this.handleChange}
           />
           <button type="submit" disabled={loading}>
-            Login
+            Register
           </button>
         </form>
         {loading && <Spinner name="circle" color="blue" />}
@@ -51,9 +51,9 @@ class RegisterForm extends React.Component {
 
 export default connect(
   state => ({
-    result: state.auth.register.result,
-    loading: state.auth.register.loading,
-    error: state.auth.register.error
+    result: state.users.register.result,
+    loading: state.users.register.loading,
+    error: state.users.register.error
   }),
   { register, getMessages }
 )(RegisterForm);
