@@ -1,11 +1,11 @@
 import React from "react";
 import Spinner from "react-spinkit";
 import { connect } from "react-redux";
-import { login } from "../../redux";
+import { register } from "../../redux";
 import { getMessages } from '../../redux/Messages/getMessages';
-import "./LoginForm.css";
+import "./RegisterForm.css";
 
-class LoginForm extends React.Component {
+class RegisterForm extends React.Component {
   state = { username: "", password: "" };
 
   handleLogin = e => {
@@ -22,7 +22,7 @@ class LoginForm extends React.Component {
     const { loading, error } = this.props;
     return (
       <React.Fragment>
-        <form id="login-form" onSubmit={this.handleLogin}>
+        <form id="register-form" onSubmit={this.handleLogin}>
           <label htmlFor="username">Username</label>
           <input
             type="text"
@@ -41,8 +41,6 @@ class LoginForm extends React.Component {
           <button type="submit" disabled={loading}>
             Login
           </button>
-          {/*Not user register here*/}
-          {/*Naviagation button register here*/}
         </form>
         {loading && <Spinner name="circle" color="blue" />}
         {error && <p style={{ color: "red" }}>{error.message}</p>}
@@ -53,9 +51,9 @@ class LoginForm extends React.Component {
 
 export default connect(
   state => ({
-    result: state.auth.login.result,
-    loading: state.auth.login.loading,
-    error: state.auth.login.error
+    result: state.auth.register.result,
+    loading: state.auth.register.loading,
+    error: state.auth.register.error
   }),
-  { login, getMessages }
-)(LoginForm);
+  { register, getMessages }
+)(RegisterForm);
