@@ -19,11 +19,11 @@ class userAccount extends React.Component {
   }
 }
 
-export default connect(
-  state => ({
-    result: state.users.register.result,
-    loading: state.users.register.loading,
-    error: state.users.register.error
-  }),
-  { register, getMessages }
-)(RegisterForm);
+// export default connect(
+//   state => ({
+//     result: state.users.register.result,
+//     loading: state.users.register.loading,
+//     error: state.users.register.error
+//   }),
+//   { register, getMessages }
+// )(RegisterForm);
