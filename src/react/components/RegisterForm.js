@@ -31,10 +31,10 @@ class RegisterForm extends React.Component {
             required
             onChange={this.handleChange}
           />
-          <label htmlFor="username"> Set Display Name</label>
+          <label htmlFor="displayname"> Set Display Name</label>
           <input
             type="text"
-            name="Display Name"
+            name="displayName"
             autoFocus
             required
             onChange={this.handleChange}
