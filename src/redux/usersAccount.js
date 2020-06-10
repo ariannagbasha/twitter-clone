@@ -8,7 +8,7 @@ import {
     createActions,
     createReducer
   } from "./helpers";
-
+// Got help from TJ
   const url = (username) => domain + `/users/${username}`; 
 
 
