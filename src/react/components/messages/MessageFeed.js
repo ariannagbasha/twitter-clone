@@ -3,6 +3,7 @@ import Menu from '../Menu';
 import { userIsAuthenticated } from "../../HOCs";
 import { connect } from 'react-redux';
 import { getMessages } from '../../../redux/Messages/getMessages';
+import NewMessages from './NewMessages'
 
 
 class MessageFeed extends Component {
@@ -24,15 +25,17 @@ class MessageFeed extends Component {
             return(
                 <>
                 <Menu isAuthenticated={this.props.isAuthenticated}/>
+                <NewMessages />
                 <h1>Message Feed without Messages</h1>
                 </>
             )}
         return (
             <>
             <Menu isAuthenticated={this.props.isAuthenticated}/>
+            <NewMessages />
             <h1>Message Feed WITH Messages</h1>
             {this.props.messages.map(message=>(
-                <>
+                <React.Fragment key={message.id}>
                 <div key={message.id}>
                 <h6>author: {message.username}</h6>
                 <p>Text: {message.text}</p>
@@ -41,7 +44,7 @@ class MessageFeed extends Component {
                 <button>Message</button>
                 }
                 </div>
-                </>
+                </React.Fragment>
             ))}
             </>
         )
