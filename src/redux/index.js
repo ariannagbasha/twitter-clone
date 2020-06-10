@@ -4,6 +4,7 @@ import { combineReducers } from "redux";
 import { connectRouter } from "connected-react-router";
 import { reducers as authReducers  } from "./auth";
 import { reducers as userReducers  } from "./users";
+import { reducers as userInfoReducers  } from "./usersAccount";
 import { getMessagesReducer } from '../redux/Messages/getMessages';
 import { newMessagesReducer } from './Messages/NewMessages';
 
@@ -21,6 +22,7 @@ export const store = configureStore({
     router: connectRouter(history),
     auth: combineReducers(authReducers),
     users: combineReducers(userReducers),
+    userInfo: combineReducers(userInfoReducers),
     messages: combineReducers(getMessagesReducer),
     newMessages: combineReducers(newMessagesReducer)
   },
@@ -31,4 +33,5 @@ export const store = configureStore({
 store.subscribe(() => {
   localStorage.setItem("login", JSON.stringify(store.getState().auth.login));
   localStorage.setItem("register", JSON.stringify(store.getState().users.register));
+
 });
