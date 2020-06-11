@@ -28,12 +28,17 @@ export const handleLike = (messageID) => dispatch =>{
     })
       .then(handleJsonResponse)
       .then(result => {
-        if(result.statusCode===200){
+        switch(result.statusCode) {
+          case 200:
           dispatch(getMessages())
-        } else if (result.statusCode===400){
+          break;
+          case 400:
           dispatch(handleUnlike(messageID))
+          break;
+          default:
+          dispatch(HANDLELIKE.SUCCESS(result))
         }
-        dispatch(HANDLELIKE.SUCCESS(result))
+        
       })
       .catch(err=> {
         if (err.statusCode===400){
