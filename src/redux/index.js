@@ -6,6 +6,7 @@ import { reducers as authReducers  } from "./auth";
 import { reducers as userReducers  } from "./users";
 import { getMessagesReducer } from '../redux/Messages/getMessages';
 import { newMessagesReducer } from './Messages/NewMessages';
+import { deleteMessagesReducer } from './Messages/deleteMessages';
 
 export * from "./auth";
 export * from "./users";
@@ -22,7 +23,9 @@ export const store = configureStore({
     auth: combineReducers(authReducers),
     users: combineReducers(userReducers),
     messages: combineReducers(getMessagesReducer),
-    newMessages: combineReducers(newMessagesReducer)
+    newMessages: combineReducers(newMessagesReducer),
+    deleteMessages: combineReducers(deleteMessagesReducer)
+    
   },
   preloadedState: {},
   devTools: process.env.NODE_ENV !== "production"

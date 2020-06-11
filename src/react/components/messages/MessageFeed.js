@@ -3,7 +3,8 @@ import Menu from '../Menu';
 import { userIsAuthenticated } from "../../HOCs";
 import { connect } from 'react-redux';
 import { getMessages } from '../../../redux/Messages/getMessages';
-import NewMessages from './NewMessages'
+import NewMessages from './NewMessages';
+import { deleteMessages } from '../../../redux/Messages/deleteMessages';
 
 
 class MessageFeed extends Component {
@@ -15,13 +16,8 @@ class MessageFeed extends Component {
 
     componentDidMount(){
         this.props.getMessages()
-        // console.log(this.props.messages)
     }
      
-
-    //  handleLike = (e) => {
-
-    //  }
 
     render() {
         //create form "text box" start user
@@ -46,8 +42,7 @@ class MessageFeed extends Component {
                 <p>Text: {message.text}</p>
                 <p>Date: {message.createdAt}</p>
                 {message.username===this.props.user &&
-                <button>Message</button>
-                // <button onClick={handleLike} key={like.id}</button>
+                <button onClick={event => this.props.deleteMessages(event, message.id)}>Delete Message</button>
                 }
                 </div>
                 </React.Fragment>
@@ -69,6 +64,6 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps={
     //this where we connect actions/functions to our react
-    getMessages
+    getMessages, deleteMessages
 }
 export default connect(mapStateToProps, mapDispatchToProps) (userIsAuthenticated(MessageFeed));

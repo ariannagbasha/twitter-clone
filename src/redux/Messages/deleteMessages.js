@@ -5,21 +5,24 @@ import {
     asyncInitialState,
     asyncCases,
     createActions,
-    createReducer
+    createReducer,
+    jsonHeaders
   } from "../helpers";
-  
-  const url = domain + "/messages";
+  import { getMessages } from './getMessages';
+  const url = domain + "/messages/";
   
   const DELETEMESSAGES = createActions("deleteMessages");
-  export const deleteMessages = () => dispatch => {
+  export const deleteMessages = (e, messageID) => (dispatch, getState) => {
     dispatch(DELETEMESSAGES.START());
-  
-    return fetch(url)
+    const token = getState().auth.login.result.token;
+    return fetch(url + messageID, {
+      method: "DELETE", 
+      headers: { Authorization: "Bearer " + token, ...jsonHeaders },
+    })
       .then(handleJsonResponse)
       .then(result => {
         console.log(result)
-        result=Object.keys(result.messages).map(key=>result.messages[key])
-        console.log(result)
+        dispatch(getMessages())
         dispatch(DELETEMESSAGES.SUCCESS(result))
       })
       .catch(err => Promise.reject(dispatch(DELETEMESSAGES.FAIL(err))));
