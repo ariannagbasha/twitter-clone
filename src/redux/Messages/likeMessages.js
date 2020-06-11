@@ -13,17 +13,17 @@ import {
 
 const url=domain  
 
-const HANDLELIKE=createActions("handLike")
-export const handleLike = (e, messageID) => dispatch =>{
+const HANDLELIKE=createActions("handleLike")
+export const handleLike = (messageID) => dispatch =>{
        console.log(messageID)
       const state=store.getState()
       const token=state.auth.login.result.token
 
       dispatch(HANDLELIKE.START())
 
-    return fetch(url +"/likes", {
+    return fetch(url + "/likes", {
         method: "POST",
-        headers: { Authorization: "Bearer "+ token, ...jsonHeaders},
+        headers: { Authorization: "Bearer " + token, ...jsonHeaders},
         body: JSON.stringify({messageId: messageID})
     })
       .then(handleJsonResponse)

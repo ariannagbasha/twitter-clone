@@ -4,7 +4,7 @@ import { userIsAuthenticated } from "../../HOCs";
 import { connect } from 'react-redux';
 import { getMessages } from '../../../redux/Messages/getMessages';
 import NewMessages from './NewMessages';
-import { handleLike } from '../../../redux/Messages/likeMessages';
+import { handleLike , handleUnlike } from '../../../redux/Messages/likeMessages';
 
 
 class MessageFeed extends Component {
@@ -21,9 +21,9 @@ class MessageFeed extends Component {
     }
      
 
-     handleLikes = (e, id) => {
+     handleLikes = (id) => (event) => {
          console.log(id)
-     this.props.handleLike(e, id)
+     this.props.handleLike(id)
      }
 
     render() {
@@ -49,7 +49,7 @@ class MessageFeed extends Component {
                 <p>Text: {message.text}</p>
                 <p>Date: {message.createdAt}</p>
                 <p>likes: {message.likes.length}</p>
-                <button onClick={event => this.handleLikes(event, message.id)}>Like Message</button>
+                <button onClick={this.handleLikes(message.id)}>Like Message</button>
                 {message.username===this.props.user &&
                 <button>Delete Message</button>
                 }
@@ -73,6 +73,6 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps={
     //this where we connect actions/functions to our react
-    getMessages, handleLike
+    getMessages, handleLike, handleUnlike
 }
 export default connect(mapStateToProps, mapDispatchToProps) (userIsAuthenticated(MessageFeed));
