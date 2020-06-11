@@ -17,6 +17,11 @@ class MessageFeed extends Component {
         this.props.getMessages()
         // console.log(this.props.messages)
     }
+     
+
+    //  handleLike = (e) => {
+
+    //  }
 
     render() {
         //create form "text box" start user
@@ -42,6 +47,7 @@ class MessageFeed extends Component {
                 <p>Date: {message.createdAt}</p>
                 {message.username===this.props.user &&
                 <button>Message</button>
+                // <button onClick={handleLike} key={like.id}</button>
                 }
                 </div>
                 </React.Fragment>

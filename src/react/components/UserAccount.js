@@ -1,23 +1,23 @@
-import React from "react";
-import Spinner from "react-spinkit";
+// import React from "react";
+// // import Spinner from "react-spinkit";
 
-import "./UserAccount.css";
+// import "./UserAccount.css";
 
-class userAccount extends React.Component {
-  state = { displayName: "" , about: "" };
+// class userAccount extends React.Component {
+//   state = { displayName: "" , about: "" };
 
 
 
-  render() {
+//   render() {
   
-    return (
-      <React.Fragment>
-          Awesome
+//     return (
+//       <React.Fragment>
+//           Awesome
     
-      </React.Fragment>
-    );
-  }
-}
+//       </React.Fragment>
+//     );
+//   }
+// }
 
 // export default connect(
 //   state => ({
