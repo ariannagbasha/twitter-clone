@@ -3,7 +3,8 @@ import Menu from '../Menu';
 import { userIsAuthenticated } from "../../HOCs";
 import { connect } from 'react-redux';
 import { getMessages } from '../../../redux/Messages/getMessages';
-import NewMessages from './NewMessages'
+import NewMessages from './NewMessages';
+import { handleLike } from '../../../redux/Messages/likeMessages';
 
 
 class MessageFeed extends Component {
@@ -11,6 +12,7 @@ class MessageFeed extends Component {
     state= {
         messages: [],
         loading: false,
+        messageId: 0
     }
 
     componentDidMount(){
@@ -19,9 +21,10 @@ class MessageFeed extends Component {
     }
      
 
-    //  handleLike = (e) => {
-
-    //  }
+     handleLikes = (e, id) => {
+         console.log(id)
+     this.props.handleLike(e, id)
+     }
 
     render() {
         //create form "text box" start user
@@ -45,9 +48,10 @@ class MessageFeed extends Component {
                 <h6>author: {message.username}</h6>
                 <p>Text: {message.text}</p>
                 <p>Date: {message.createdAt}</p>
+                <p>likes: {message.likes.length}</p>
+                <button onClick={event => this.handleLikes(event, message.id)}>Like Message</button>
                 {message.username===this.props.user &&
-                <button>Message</button>
-                // <button onClick={handleLike} key={like.id}</button>
+                <button>Delete Message</button>
                 }
                 </div>
                 </React.Fragment>
@@ -69,6 +73,6 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps={
     //this where we connect actions/functions to our react
-    getMessages
+    getMessages, handleLike
 }
 export default connect(mapStateToProps, mapDispatchToProps) (userIsAuthenticated(MessageFeed));
