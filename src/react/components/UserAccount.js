@@ -5,17 +5,17 @@ import { connect } from "react-redux";
 import "./UserAccount.css";
 
 class UserAccount extends React.Component {
-  state = { info: "" };
+  state = {};
 
 
-  componentWillMount() {
+  componentDidMount() {
      this.props.user(this.props.username)
     
   }
   
 
   render() {
-    console.log(this.props.userInfo)
+    console.log(this.props.result)
     return (
       <React.Fragment>
           Awesome
@@ -28,9 +28,9 @@ class UserAccount extends React.Component {
 
 export default connect(
   state => ({
-    username: state.auth.login.result.username,
-    userInfo: state.userInfo,
-    error: state.auth.login.error
+    result: state.auth.login.result.username,
+    loading: state.auth.user,
+    error: state.auth.user
   }),
   { user }
 )(UserAccount);
