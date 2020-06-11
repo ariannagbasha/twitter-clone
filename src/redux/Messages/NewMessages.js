@@ -9,7 +9,7 @@ import {
     jsonHeaders
   } from "../helpers";
   
-  import { getMessages } from './getMessages';
+import { getMessages } from './getMessages';
 
 const url = domain + "/messages";
 
