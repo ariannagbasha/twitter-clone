@@ -7,6 +7,7 @@ import { reducers as userReducers  } from "./users";
 import { getMessagesReducer } from '../redux/Messages/getMessages';
 import { newMessagesReducer } from './Messages/NewMessages';
 import { deleteMessagesReducer } from './Messages/deleteMessages';
+import { likeunlikeReducers } from './Messages/likeMessages';
 
 export * from "./auth";
 export * from "./users";
@@ -24,8 +25,8 @@ export const store = configureStore({
     users: combineReducers(userReducers),
     messages: combineReducers(getMessagesReducer),
     newMessages: combineReducers(newMessagesReducer),
-    deleteMessages: combineReducers(deleteMessagesReducer)
-    
+    deleteMessages: combineReducers(deleteMessagesReducer),
+    likesMessages: combineReducers(likeunlikeReducers)
   },
   preloadedState: {},
   devTools: process.env.NODE_ENV !== "production"
@@ -33,5 +34,4 @@ export const store = configureStore({
 
 store.subscribe(() => {
   localStorage.setItem("login", JSON.stringify(store.getState().auth.login));
-  localStorage.setItem("register", JSON.stringify(store.getState().users.register));
 });
