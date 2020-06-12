@@ -9,8 +9,8 @@ import {
     createReducer
   } from "./helpers";
 // Got help from TJ
-  // const url = (username) => domain + `/users/${username}`; 
-  const url = domain + '/users/'; 
+  const url = (username) => domain + `/users/${username}`; 
+  // const url = domain + '/users/'; 
   // import from login data
 
 
