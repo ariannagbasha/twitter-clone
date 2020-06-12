@@ -15,7 +15,7 @@ class LoginForm extends React.Component {
     this.props.getMessages();
   };
   responseGoogle = response => {
-    // console.log(response);
+    console.log(response);
     this.props.login(response)
   };
 

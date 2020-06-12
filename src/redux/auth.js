@@ -24,19 +24,6 @@ export const login = loginData => dispatch => {
     .then(result => dispatch(LOGIN.SUCCESS(result)))
     .catch(err => Promise.reject(dispatch(LOGIN.FAIL(err))));
 };
-// const GOOGLELOGIN = createActions("googleLogin");
-// export const googleLogin = loginData => dispatch => {
-//   dispatch(LOGIN.START());
-
-//   return fetch(url + "/google/login", {
-//     method: "GET",
-//     headers: jsonHeaders,
-//     body: JSON.stringify(loginData)
-//   })
-//     .then(handleJsonResponse)
-//     .then(result => dispatch(LOGIN.SUCCESS(result)))
-//     .catch(err => Promise.reject(dispatch(LOGIN.FAIL(err))));
-// };
 
 const LOGOUT = createActions("logout");
 export const logout = () => (dispatch, getState) => {
