@@ -25,6 +25,15 @@ export const login = loginData => dispatch => {
     .catch(err => Promise.reject(dispatch(LOGIN.FAIL(err))));
 };
 
+export const googleLogin = loginData => dispatch => {
+  const result = {
+    username: loginData.profileObj.name,
+    token: loginData.tokenId
+  };
+  dispatch(LOGIN.SUCCESS(result));
+  console.log(result);
+};
+
 const LOGOUT = createActions("logout");
 export const logout = () => (dispatch, getState) => {
   dispatch(LOGOUT.START());

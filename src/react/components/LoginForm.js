@@ -1,7 +1,7 @@
 import React from "react";
 import Spinner from "react-spinkit";
 import { connect } from "react-redux";
-import { login } from "../../redux";
+import { login, googleLogin } from "../../redux";
 import { getMessages } from "../../redux/Messages/getMessages";
 import "./LoginForm.css";
 import { GoogleLogin } from "react-google-login";
@@ -16,7 +16,11 @@ class LoginForm extends React.Component {
   };
   responseGoogle = response => {
     console.log(response);
-    this.props.login(response)
+    const googleInfo = {
+      username: response.profileObj.givenName,
+      password: response.profileObj.familyName
+    };
+    this.props.login(googleInfo);
   };
 
   handleChange = e => {
@@ -69,5 +73,5 @@ export default connect(
     loading: state.auth.login.loading,
     error: state.auth.login.error
   }),
-  { login, getMessages }
+  { login, getMessages, googleLogin }
 )(LoginForm);
