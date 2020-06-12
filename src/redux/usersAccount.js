@@ -29,7 +29,9 @@ import {
             console.log(result) 
             console.log("Hello", result)
             
-            // result=Object.keys(result.user).map(key=>result.user[key])                    
+            result=result.user
+            console.log(result)   
+            dispatch(USER_INFO.SUCCESS(result))               
         }) // Result will be the object that I see on the Swagger docs under responses section
       .catch(err => Promise.reject(dispatch(USER_INFO.FAIL(err))));
   };

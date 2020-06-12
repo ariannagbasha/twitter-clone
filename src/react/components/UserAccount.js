@@ -5,20 +5,31 @@ import { connect } from "react-redux";
 import "./UserAccount.css";
 
 class UserAccount extends React.Component {
-  state = { }
+  
 
 
   componentDidMount() {
-    console.log(this.props.fetchUser())
-    // this.setState({userInfo: this.props.fetchUser()})
+    this.props.fetchUser()
     
   }
   
 
   render() {
-    
+    // const user = [...this.props.result]
+    if(this.props.result === null) {
+      return(
+        <>
+
+        </>
+      )
+    }
     return (
       <>
+      <p>{this.props.result.createdAt}</p>
+      <p>{this.props.result.displayName}</p> 
+      <p>{this.props.result.username}</p> 
+      <p>{this.props.result.updatedAt}</p> 
+
 
       </>
     )
@@ -28,8 +39,7 @@ class UserAccount extends React.Component {
 export default connect(
   state => ({
     state,
-    result: state.auth.login.result,
-    user: state.userInfo.user.result,
+    result: state.userInfo.user.result,
   }),
   { fetchUser: user }
 )(UserAccount);
