@@ -10,7 +10,6 @@ class UserAccount extends React.Component {
 
   componentDidMount() {
     this.props.fetchUser()
-    
   }
   
 
@@ -25,12 +24,10 @@ class UserAccount extends React.Component {
     }
     return (
       <>
-      <p>{this.props.result.createdAt}</p>
-      <p>{this.props.result.displayName}</p> 
-      <p>{this.props.result.username}</p> 
-      <p>{this.props.result.updatedAt}</p> 
-
-
+      <p>Created At: {this.props.result.createdAt}</p>
+      <p>Display Name: {this.props.result.displayName}</p> 
+      <p>Username: {this.props.result.username}</p> 
+      <p>Updated At: {this.props.result.updatedAt}</p> 
       </>
     )
   }
