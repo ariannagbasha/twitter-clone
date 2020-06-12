@@ -5,32 +5,32 @@ import { connect } from "react-redux";
 import "./UserAccount.css";
 
 class UserAccount extends React.Component {
-  state = {}
+  state = { }
 
 
   componentDidMount() {
-    this.props.user()
-    
+    console.log(this.props.fetchUser())
+    // this.setState({userInfo: this.props.fetchUser()})
     
   }
   
 
   render() {
-    // console.log(this.props.result)
-    console.log(this.props.user)
+    
     return (
-      <React.Fragment>
-           {/* {this.props.user(this.props.result)} */}
-      </React.Fragment>
-    );
+      <>
+
+      </>
+    )
   }
 }
 
 export default connect(
   state => ({
+    state,
     result: state.auth.login.result,
     user: state.userInfo.user.result,
   }),
-  { user }
+  { fetchUser: user }
 )(UserAccount);
 

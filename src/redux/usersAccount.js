@@ -14,7 +14,7 @@ import {
   // import from login data
 
 
-  const USER_INFO = createActions("getUserInfo");
+  const USER_INFO = createActions("getUserInfoTo");
   export const user = () => (dispatch, getState) => {
     dispatch(USER_INFO.START()); /// What triggers the reducer function to add something to the state
     // console.log(userData.username)
@@ -25,18 +25,17 @@ import {
     })
       .then(handleJsonResponse)
       .then(result => {
-          dispatch(USER_INFO.SUCCESS(result))
+        dispatch(USER_INFO.SUCCESS(result))
             console.log(result) 
-            result=Object.keys(result.user).map(key=>result.user[key])
-            console.log(result)
+            console.log("Hello", result)
+            
             // result=Object.keys(result.user).map(key=>result.user[key])                    
         }) // Result will be the object that I see on the Swagger docs under responses section
       .catch(err => Promise.reject(dispatch(USER_INFO.FAIL(err))));
   };
   export const reducers = {
-    user: createReducer(getInitStateFromStorage("getUserInfo", asyncInitialState), {
+    user: createReducer(getInitStateFromStorage("getUserInfoTo", asyncInitialState), {
       ...asyncCases(USER_INFO),
-      [USER_INFO.SUCCESS.toString()]: (state, action) => asyncInitialState
     })
  
   };
