@@ -17,8 +17,8 @@ import {
   const USER_INFO = createActions("getUserInfo");
   export const user = userData => dispatch => {
     dispatch(USER_INFO.START()); /// What triggers the reducer function to add something to the state
-    console.log(userData)
-    return fetch(url, {
+    console.log(userData.username)
+    return fetch(url(userData.username), {
       method: "GET", //Only have to get the information
       headers: jsonHeaders,
     })
