@@ -2,8 +2,9 @@ import React from "react";
 import Spinner from "react-spinkit";
 import { connect } from "react-redux";
 import { login } from "../../redux";
-import { getMessages } from '../../redux/Messages/getMessages';
+import { getMessages } from "../../redux/Messages/getMessages";
 import "./LoginForm.css";
+import { GoogleLogin } from "react-google-login";
 
 class LoginForm extends React.Component {
   state = { username: "", password: "" };
@@ -11,7 +12,11 @@ class LoginForm extends React.Component {
   handleLogin = e => {
     e.preventDefault();
     this.props.login(this.state);
-    this.props.getMessages()
+    this.props.getMessages();
+  };
+  responseGoogle = response => {
+    console.log(response);
+    // this.props.login(response)
   };
 
   handleChange = e => {
@@ -41,7 +46,14 @@ class LoginForm extends React.Component {
           <button type="submit" disabled={loading}>
             Login
           </button>
-          {/*Not user register here*/}
+          <GoogleLogin
+            clientId="968913697208-hu25spo2drs955acb3j8fp5cin2sshr3.apps.googleusercontent.com"
+            buttonText="Login"
+            onSuccess={this.responseGoogle}
+            onFailure={this.responseGoogle}
+            cookiePolicy={"single_host_origin"}
+          />
+          ,{/*Not user register here*/}
           {/*Naviagation button register here*/}
         </form>
         {loading && <Spinner name="circle" color="blue" />}
