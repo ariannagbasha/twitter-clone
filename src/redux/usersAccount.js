@@ -9,7 +9,7 @@ import {
     createReducer
   } from "./helpers";
 
-  const url = domain + `/profiles/${username}`; 
+  const url = domain + `/user/${username}`; 
 
 
   const USER_INFO = createActions("getUserInfo");
