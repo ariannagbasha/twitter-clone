@@ -4,6 +4,7 @@ import { combineReducers } from "redux";
 import { connectRouter } from "connected-react-router";
 import { reducers as authReducers  } from "./auth";
 import { reducers as userReducers  } from "./users";
+import { reducers as userInfoReducers  } from "./usersAccount";
 import { getMessagesReducer } from '../redux/Messages/getMessages';
 import { getUsersReducer } from '../redux/getUsers';
 import { newMessagesReducer } from './Messages/NewMessages';
@@ -25,6 +26,7 @@ export const store = configureStore({
     auth: combineReducers(authReducers),
     users: combineReducers(userReducers),
     getUsers: combineReducers(getUsersReducer),
+    userInfo: combineReducers(userInfoReducers),
     messages: combineReducers(getMessagesReducer),
     newMessages: combineReducers(newMessagesReducer),
     deleteMessages: combineReducers(deleteMessagesReducer),

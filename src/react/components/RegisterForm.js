@@ -8,7 +8,7 @@ import "./RegisterForm.css";
 class RegisterForm extends React.Component {
   state = { username: "", displayName: "" , password: "" };
 
-  handleLogin = e => {
+  handleRegister = e => {
     e.preventDefault();
     this.props.register(this.state);
     this.props.getMessages()
@@ -22,7 +22,7 @@ class RegisterForm extends React.Component {
     const { loading, error } = this.props;
     return (
       <React.Fragment>
-        <form id="register-form" onSubmit={this.handleLogin}>
+        <form id="register-form" onSubmit={this.handleRegister}>
           <label htmlFor="username"> Set Username</label>
           <input
             type="text"
