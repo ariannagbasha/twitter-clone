@@ -5,6 +5,7 @@ import { connectRouter } from "connected-react-router";
 import { reducers as authReducers  } from "./auth";
 import { reducers as userReducers  } from "./users";
 import { getMessagesReducer } from '../redux/Messages/getMessages';
+import { getUsersReducer } from '../redux/getUsers';
 import { newMessagesReducer } from './Messages/NewMessages';
 import { deleteMessagesReducer } from './Messages/deleteMessages';
 import { likeunlikeReducers } from './Messages/likeMessages';
@@ -23,6 +24,7 @@ export const store = configureStore({
     router: connectRouter(history),
     auth: combineReducers(authReducers),
     users: combineReducers(userReducers),
+    getUsers: combineReducers(getUsersReducer),
     messages: combineReducers(getMessagesReducer),
     newMessages: combineReducers(newMessagesReducer),
     deleteMessages: combineReducers(deleteMessagesReducer),
