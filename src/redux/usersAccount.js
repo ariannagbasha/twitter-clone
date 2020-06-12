@@ -15,10 +15,11 @@ import {
 
 
   const USER_INFO = createActions("getUserInfo");
-  export const user = userData => dispatch => {
+  export const user = () => (dispatch, getState) => {
     dispatch(USER_INFO.START()); /// What triggers the reducer function to add something to the state
-    console.log(userData.username)
-    return fetch(url(userData.username), {
+    // console.log(userData.username)
+    let username = getState().auth.login.result.username;
+    return fetch(url(username), {
       method: "GET", //Only have to get the information
       headers: jsonHeaders,
     })
@@ -26,6 +27,8 @@ import {
       .then(result => {
           dispatch(USER_INFO.SUCCESS(result))
             console.log(result) 
+            result=Object.keys(result.user).map(key=>result.user[key])
+            console.log(result)
             // result=Object.keys(result.user).map(key=>result.user[key])                    
         }) // Result will be the object that I see on the Swagger docs under responses section
       .catch(err => Promise.reject(dispatch(USER_INFO.FAIL(err))));

@@ -37,7 +37,7 @@ class MessageFeed extends Component {
             {this.props.messages.map(message=>(
                 <React.Fragment key={message.id}>
                 <div key={message.id}>
-                <h6>author: {message.username}</h6>
+                <h6>Author: {message.username}</h6>
                 <p>Text: {message.text}</p>
                 <p>Date: {message.createdAt}</p>
                 {message.username===this.props.user &&
