@@ -20,7 +20,7 @@ class LoginForm extends React.Component {
       username: response.profileObj.givenName,
       password: response.profileObj.familyName
     };
-    this.props.login(googleInfo);
+    this.props.googleLogin(response);
   };
 
   handleChange = e => {

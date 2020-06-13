@@ -25,7 +25,16 @@ export const login = loginData => dispatch => {
     .catch(err => Promise.reject(dispatch(LOGIN.FAIL(err))));
 };
 
-export const googleLogin = loginData => dispatch => {
+export const googleLogin = loginData => (dispatch, getState) => {
+  dispatch(LOGIN.START());
+  const token = getState().auth.login.result.token;
+  fetch(url + "/google/login", {
+    method: "GET",
+    headers: { Authorization: "Bearer " + token, ...jsonHeaders }
+  });
+  // .then(result => { dispatch(LOGIN.SUCCESS(result))}
+
+
   const result = {
     username: loginData.profileObj.name,
     token: loginData.tokenId
