@@ -26,14 +26,14 @@ export const login = loginData => dispatch => {
 };
 
 export const googleLogin = loginData => (dispatch, getState) => {
-  dispatch(LOGIN.START());
+  // dispatch(LOGIN.START());
   // const token = getState().auth.login.result.token;
   // fetch(url + "/google/login", {
   //   method: "GET",
   //   headers: { Authorization: "Bearer " + token, ...jsonHeaders }
   // });
-  // .then(result => { dispatch(LOGIN.SUCCESS(result))}
-
+  localStorage.clear()
+  window.location.reload()
 
   const result = {
     username: loginData.profileObj.name,
