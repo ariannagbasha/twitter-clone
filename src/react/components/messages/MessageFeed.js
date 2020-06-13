@@ -29,7 +29,7 @@ class MessageFeed extends Component {
     render() {
         //create form "text box" start user
         
-        if(this.props.messages===null){
+        if(this.props.messages===null || this.props.user === null){
             return(
                 <>
                 <Menu isAuthenticated={this.props.isAuthenticated}/>
@@ -50,7 +50,7 @@ class MessageFeed extends Component {
                 <p>Date: {message.createdAt}</p>
                 <p>likes: {message.likes.length}</p>
                 <button onClick={this.handleLikes(message.id)}>Like Message</button>
-                {message.username===this.props.user &&
+                {message.username===this.props.user.username &&
                 <button onClick={event => this.props.deleteMessages(event, message.id)}>Delete Message</button>
                 }
                 </div>
@@ -66,8 +66,9 @@ const mapStateToProps = state => {
     return{
       //this is where we connect the info from our store to our react props
       messages: state.messages.getMessages.result,
-      user: state.auth.login.result.username
-   }
+      user: state.auth.login.result
+
+    }
 }
 
 const mapDispatchToProps={
