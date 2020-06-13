@@ -67,8 +67,7 @@ const mapStateToProps = state => {
       //this is where we connect the info from our store to our react props
       messages: state.messages.getMessages.result,
       user: state.auth.login.result.username
-
-    }
+   }
 }
 
 const mapDispatchToProps={

@@ -7,14 +7,13 @@ import {
     asyncCases,
     createActions,
     createReducer
-  } from "./helpers";
+  } from './helpers';
+
 // Got help from TJ
   const url = (username) => domain + `/users/${username}`; 
-  // const url = domain + '/users/'; 
-  // import from login data
 
-
-  const USER_INFO = createActions("getUserInfoTo");
+  
+  const USER_INFO = createActions("getUsersInfoTo");
   export const user = () => (dispatch, getState) => {
     dispatch(USER_INFO.START()); /// What triggers the reducer function to add something to the state
     // console.log(userData.username)
@@ -36,7 +35,7 @@ import {
       .catch(err => Promise.reject(dispatch(USER_INFO.FAIL(err))));
   };
   export const reducers = {
-    user: createReducer(getInitStateFromStorage("getUserInfoTo", asyncInitialState), {
+    user: createReducer(getInitStateFromStorage("getUsersInfoTo", asyncInitialState), {
       ...asyncCases(USER_INFO),
     })
  

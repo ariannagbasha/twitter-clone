@@ -6,7 +6,7 @@ import {
     asyncCases,
     createActions,
     createReducer
-  } from "../helpers";
+  } from './helpers';
   
   const url = domain + "/users?limit=10";
   
@@ -18,13 +18,15 @@ import {
       .then(handleJsonResponse)
       .then(result => {
         console.log(result)
+        result=Object.keys(result.users).map(key=>result.users[key])
+        console.log(result)
         dispatch(GETUSERS.SUCCESS(result))
       })
       .catch(err => Promise.reject(dispatch(GETUSERS.FAIL(err))));
   };
   
   
-  export const getMessagesReducer = {
+  export const getUsersReducer = {
     getUsers: createReducer(getInitStateFromStorage("getUsers", asyncInitialState), {
       ...asyncCases(GETUSERS),
     }),
