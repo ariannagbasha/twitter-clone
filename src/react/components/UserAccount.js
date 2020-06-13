@@ -42,7 +42,7 @@ export default connect(
   state => ({
     state,
     result: state.userInfo.user.result,
-    users: state.getUsers.getUsers.result
+    // users: state.getUsers.getUsers.result
   }),
   { fetchUser: user, getUsers }
 )(UserAccount);
