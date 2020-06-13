@@ -59,7 +59,7 @@ class LoginForm extends React.Component {
           <button type="submit" disabled={loading}>
             Login
           </button>
-          <p onClick={this.loginWithGoogle}>Login with Google</p>
+          <button onClick={this.loginWithGoogle}>Login with Google</button>
           {/*Not user register here*/}
           {/*Naviagation button register here*/}
         </form>
