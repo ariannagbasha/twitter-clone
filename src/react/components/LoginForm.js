@@ -3,6 +3,7 @@ import Spinner from "react-spinkit";
 import { connect } from "react-redux";
 import { login, googleLogin } from "../../redux";
 import { getMessages } from "../../redux/Messages/getMessages";
+import { NavLink } from 'react-router-dom'
 import "./LoginForm.css";
 
 
@@ -61,7 +62,10 @@ class LoginForm extends React.Component {
           </button>
           <button onClick={this.loginWithGoogle}>Login with Google</button>
           {/*Not user register here*/}
-          {/*Naviagation button register here*/}
+          Not Registered Yet ?
+          <NavLink to="/registerform" activeClassName="selected">
+                Register Form
+            </NavLink>
         </form>
         {loading && <Spinner name="circle" color="blue" />}
         {error && <p style={{ color: "red" }}>{error.message}</p>}
