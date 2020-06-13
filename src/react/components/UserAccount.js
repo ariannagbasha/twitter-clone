@@ -1,8 +1,8 @@
 import React from "react";
-import { user } from "../../redux/usersAccount";
+import { user } from "../../redux/Users/usersAccount";
 import { connect } from "react-redux";
 import "./UserAccount.css";
-import { getUsers } from '../../redux/getUsers';
+import { getUsers } from '../../redux/Users/getUsers';
 
 
 

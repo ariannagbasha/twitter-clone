@@ -6,7 +6,7 @@ import {
     asyncCases,
     createActions,
     createReducer
-  } from './helpers';
+  } from '../helpers';
   
   const url = domain + "/users?limit=10";
   

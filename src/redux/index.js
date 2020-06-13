@@ -2,17 +2,17 @@ import { createBrowserHistory } from "history";
 import { configureStore } from "@reduxjs/toolkit";
 import { combineReducers } from "redux";
 import { connectRouter } from "connected-react-router";
-import { reducers as authReducers  } from "./auth";
-import { reducers as userReducers  } from "./users";
-import { reducers as userInfoReducers  } from "./usersAccount";
+import { reducers as authReducers  } from "./Login-Logout/auth";
+import { reducers as userReducers  } from "./Users/users";
+import { reducers as userInfoReducers  } from "./Users/usersAccount";
 import { getMessagesReducer } from '../redux/Messages/getMessages';
-import { getUsersReducer } from '../redux/getUsers';
+import { getUsersReducer } from './Users/getUsers';
 import { newMessagesReducer } from './Messages/NewMessages';
 import { deleteMessagesReducer } from './Messages/deleteMessages';
 import { likeunlikeReducers } from './Messages/likeMessages';
 
-export * from "./auth";
-export * from "./users";
+export * from "./Login-Logout/auth";
+export * from "./Users/users";
 
 
 

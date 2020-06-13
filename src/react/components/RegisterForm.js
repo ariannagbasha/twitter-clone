@@ -1,7 +1,7 @@
 import React from "react";
 import Spinner from "react-spinkit";
 import { connect } from "react-redux";
-import { register } from "../../redux";
+import { register } from "../../redux/Users/users";
 import { getMessages } from '../../redux/Messages/getMessages';
 import "./RegisterForm.css";
 
