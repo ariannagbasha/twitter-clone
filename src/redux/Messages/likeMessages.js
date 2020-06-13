@@ -12,7 +12,7 @@ import {
   import { getMessages } from "./getMessages";
 
 const url=domain  
-
+// Got help from a coach, but refactored it
 const HANDLELIKE=createActions("handleLike")
 export const handleLike = (messageID) => dispatch =>{
        console.log(messageID)

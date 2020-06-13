@@ -11,6 +11,8 @@ import {
 
 const url = domain + "/auth";
 
+// Finished Login fixed by Vince
+
 const LOGIN = createActions("login");
 export const login = loginData => dispatch => {
   dispatch(LOGIN.START());
@@ -25,22 +27,8 @@ export const login = loginData => dispatch => {
     .catch(err => Promise.reject(dispatch(LOGIN.FAIL(err))));
 };
 
-export const googleLogin = loginData => (dispatch, getState) => {
-  // dispatch(LOGIN.START());
-  // const token = getState().auth.login.result.token;
-  // fetch(url + "/google/login", {
-  //   method: "GET",
-  //   headers: { Authorization: "Bearer " + token, ...jsonHeaders }
-  // });
-  localStorage.clear()
-  window.location.reload()
-
-  const result = {
-    username: loginData.profileObj.name,
-    token: loginData.tokenId
-  };
-  dispatch(LOGIN.SUCCESS(result));
-  console.log(result);
+export const googleLogin = loginData => (dispatch) => {
+  dispatch(LOGIN.SUCCESS(loginData));
 };
 
 const LOGOUT = createActions("logout");
@@ -48,14 +36,15 @@ export const logout = () => (dispatch, getState) => {
   dispatch(LOGOUT.START());
 
   const token = getState().auth.login.result.token;
-
+  dispatch(LOGOUT.SUCCESS({}))
   return fetch(url + "/logout", {
     method: "GET",
     headers: { Authorization: "Bearer " + token, ...jsonHeaders }
   })
     .then(handleJsonResponse)
-    .then(result => dispatch(LOGOUT.SUCCESS(result)))
-    .catch(err => Promise.reject(dispatch(LOGOUT.FAIL(err))));
+    .catch( () => {
+      localStorage.clear()
+    } );
 };
 
 export const reducers = {

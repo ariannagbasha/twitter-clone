@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { login, googleLogin } from "../../redux";
 import { getMessages } from "../../redux/Messages/getMessages";
 import "./LoginForm.css";
-import { GoogleLogin } from "react-google-login";
+
 
 class LoginForm extends React.Component {
   state = { username: "", password: "" };
@@ -14,14 +14,23 @@ class LoginForm extends React.Component {
     this.props.login(this.state);
     this.props.getMessages();
   };
-  responseGoogle = response => {
-    console.log(response);
-    const googleInfo = {
-      username: response.profileObj.givenName,
-      password: response.profileObj.familyName
-    };
-    this.props.googleLogin(response);
+  // Got this from Vince
+  // https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage
+ loginWithGoogle = () => {
+  const authWindow = window.open(
+    "https://kwitter-api.herokuapp.com/auth/google/login", //open auth google login, saying that I want the window to be set to something
+    "_blank", 
+    "width=500,height=500"
+  );
+  authWindow.window.opener.onmessage = (event) => { // Whenever that window recieves a messages, it will check everything out and make sure it is sent back
+    authWindow.close()
+    if(!event || !event.data || !event.data.token) {  // Need add error handling just in case not able login with google
+      // google login failure, dispatch an action here 
+      return
+    }
+    this.props.googleLogin(event.data);
   };
+ }
 
   handleChange = e => {
     this.setState({ [e.target.name]: e.target.value });
@@ -50,14 +59,8 @@ class LoginForm extends React.Component {
           <button type="submit" disabled={loading}>
             Login
           </button>
-          <GoogleLogin
-            clientId="968913697208-hu25spo2drs955acb3j8fp5cin2sshr3.apps.googleusercontent.com"
-            buttonText="Login"
-            onSuccess={this.responseGoogle}
-            onFailure={this.responseGoogle}
-            cookiePolicy={"single_host_origin"}
-          />
-          ,{/*Not user register here*/}
+          <p onClick={this.loginWithGoogle}>Login with Google</p>
+          {/*Not user register here*/}
           {/*Naviagation button register here*/}
         </form>
         {loading && <Spinner name="circle" color="blue" />}
