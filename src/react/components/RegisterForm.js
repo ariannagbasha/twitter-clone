@@ -3,6 +3,7 @@ import Spinner from "react-spinkit";
 import { connect } from "react-redux";
 import { register } from "../../redux/Users/users";
 import { getMessages } from '../../redux/Messages/getMessages';
+import { NavLink } from 'react-router-dom'
 import "./RegisterForm.css";
 
 class RegisterForm extends React.Component {
@@ -49,6 +50,11 @@ class RegisterForm extends React.Component {
           <button type="submit" disabled={loading}>
             Register
           </button>
+          Already have a login ? 
+
+          <NavLink to="/" activeClassName="selected">
+                Login Form
+            </NavLink>
         </form>
         {loading && <Spinner name="circle" color="blue" />}
         {error && <p style={{ color: "red" }}>{error.message}</p>}
