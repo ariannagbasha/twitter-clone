@@ -2,16 +2,18 @@ import React from "react";
 import Spinner from "react-spinkit";
 import { connect } from "react-redux";
 import { register } from "../../redux";
-import { getMessages } from '../../redux/Messages/getMessages';
+import { getMessages } from "../../redux/Messages/getMessages";
+import { NavLink } from "react-router-dom";
 import "./RegisterForm.css";
+import { Form, Button } from "react-bootstrap";
 
 class RegisterForm extends React.Component {
-  state = { username: "", displayName: "" , password: "" };
+  state = { username: "", displayName: "", password: "" };
 
   handleRegister = e => {
     e.preventDefault();
     this.props.register(this.state);
-    this.props.getMessages()
+    this.props.getMessages();
   };
 
   handleChange = e => {
@@ -22,6 +24,46 @@ class RegisterForm extends React.Component {
     const { loading, error } = this.props;
     return (
       <React.Fragment>
+        <Form onSubmit={this.handleRegister}>
+          <Form.Group controlId="formBasicEmail">
+            <Form.Label>User Name</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="Username"
+              name="username"
+              autoFocus
+              required
+              onChange={this.handleChange}
+            />
+          </Form.Group>
+
+          <Form.Group controlId="formBasicPassword">
+            <Form.Label>Display Name</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="Display name"
+              name="displayName"
+              autoFocus
+              required
+              onChange={this.handleChange}
+            />
+          </Form.Group>
+          <Form.Group controlId="formBasicPassword">
+            <Form.Label>Password</Form.Label>
+            <Form.Control
+              type="password"
+              placeholder="Password"
+              name="password"
+              required
+              onChange={this.handleChange}
+            />
+          </Form.Group>
+
+          <Button variant="primary" type="submit">
+            Submit
+          </Button>
+        </Form>
+
         <form id="register-form" onSubmit={this.handleRegister}>
           <label htmlFor="username"> Set Username</label>
           <input
@@ -49,6 +91,10 @@ class RegisterForm extends React.Component {
           <button type="submit" disabled={loading}>
             Register
           </button>
+          Already have a login ?
+          <NavLink to="/" activeClassName="selected">
+            Login Form
+          </NavLink>
         </form>
         {loading && <Spinner name="circle" color="blue" />}
         {error && <p style={{ color: "red" }}>{error.message}</p>}

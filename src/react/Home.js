@@ -1,5 +1,5 @@
 import React from "react";
-import { LoginForm, Menu, RegisterForm } from "./components";
+import { LoginForm, Menu} from "./components";
 import { userIsNotAuthenticated } from "./HOCs";
 
 class Home extends React.Component {
@@ -9,7 +9,6 @@ class Home extends React.Component {
         <Menu />
         <h2>Your favorite microblogging platform</h2>
         <LoginForm />
-        <RegisterForm />
       </>
     );
   }
