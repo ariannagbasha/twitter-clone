@@ -1,8 +1,8 @@
 import React from "react";
 import Spinner from "react-spinkit";
 import { connect } from "react-redux";
-import { login, googleLogin } from "../../redux";
-import { getMessages } from "../../redux/Messages/getMessages";
+import { login, googleLogin } from "../../../redux";
+import { getMessages } from "../../../redux/Messages/getMessages";
 import { NavLink } from "react-router-dom";
 import { Form, Button } from "react-bootstrap";
 

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Menu from '../Menu';
+import Menu from '../menu/Menu';
 import { userIsAuthenticated } from "../../HOCs";
 import { connect } from 'react-redux';
 import { getMessages } from '../../../redux/Messages/getMessages';

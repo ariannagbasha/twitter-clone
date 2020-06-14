@@ -1,8 +1,8 @@
 import React from "react";
 import Spinner from "react-spinkit";
 import { connect } from "react-redux";
-import { register } from "../../redux/Users/users";
-import { getMessages } from '../../redux/Messages/getMessages';
+import { register } from "../../../redux/Users/users";
+import { getMessages } from '../../../redux/Messages/getMessages';
 import { NavLink } from 'react-router-dom'
 import "./RegisterForm.css";
 
