@@ -45,54 +45,27 @@ class LoginForm extends React.Component {
     return (
       <React.Fragment>
         <Form onSubmit={this.handleLogin}>
-          <Form.Group controlId="formBasicEmail">
-            <Form.Label>Email address</Form.Label>
-            <Form.Control type="email" placeholder="Enter email" />
-            <Form.Text className="text-muted">
-              We'll never share your email with anyone else.
-            </Form.Text>
+          <Form.Group controlId="formBasicUsername">
+            {/* <Form.Label>Username</Form.Label> */}
+            <Form.Control size="sm" type="text" name="username" autoFocus required onChange={this.handleChange} placeholder="Username" />
           </Form.Group>
-
           <Form.Group controlId="formBasicPassword">
-            <Form.Label>Password</Form.Label>
-            <Form.Control type="password" placeholder="Password" />
+            {/* <Form.Label>Password</Form.Label> */}
+            <Form.Control type="password" name="password" required onChange={this.handleChange} placeholder="Password" />
           </Form.Group>
-          <Form.Group controlId="formBasicCheckbox">
-            <Form.Check type="checkbox" label="Check me out" />
-          </Form.Group>
-          <Button variant="primary" type="submit">
+          <Button variant="primary" type="submit" disabled={loading}>
             Submit
           </Button>
+          <br/>
           <Button variant="primary" type="submit" onClick={this.loginWithGoogle}> 
             Login With Google
           </Button>
         </Form>
-        <form id="login-form" onSubmit={this.handleLogin}>
-          <label htmlFor="username">Username</label>
-          <input
-            type="text"
-            name="username"
-            autoFocus
-            required
-            onChange={this.handleChange}
-          />
-          <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            name="password"
-            required
-            onChange={this.handleChange}
-          />
-          <button type="submit" disabled={loading}>
-            Login
-          </button>
-          <button onClick={this.loginWithGoogle}>Login with Google</button>
-          {/*Not user register here*/}
           Not Registered Yet ?
+          <br/>
           <NavLink to="/registerform" activeClassName="selected">
             Register Form
           </NavLink>
-        </form>
         {loading && <Spinner name="circle" color="blue" />}
         {error && <p style={{ color: "red" }}>{error.message}</p>}
       </React.Fragment>
