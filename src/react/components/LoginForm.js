@@ -4,10 +4,8 @@ import { connect } from "react-redux";
 import { login, googleLogin } from "../../redux";
 import { getMessages } from "../../redux/Messages/getMessages";
 import { NavLink } from "react-router-dom";
+import { Form, Button } from "react-bootstrap";
 
-
-
-import Button from 'react-bootstrap/Button';
 import "./LoginForm.css";
 
 class LoginForm extends React.Component {
@@ -33,7 +31,6 @@ class LoginForm extends React.Component {
         // Need add error handling just in case not able login with google
         // google login failure, dispatch an action here
         return;
-      
       }
       this.props.googleLogin(event.data);
     };
@@ -46,6 +43,30 @@ class LoginForm extends React.Component {
   render() {
     const { loading, error } = this.props;
     return (
+      <React.Fragment>
+        <Form onSubmit={this.handleLogin}>
+          <Form.Group controlId="formBasicEmail">
+            <Form.Label>Email address</Form.Label>
+            <Form.Control type="email" placeholder="Enter email" />
+            <Form.Text className="text-muted">
+              We'll never share your email with anyone else.
+            </Form.Text>
+          </Form.Group>
+
+          <Form.Group controlId="formBasicPassword">
+            <Form.Label>Password</Form.Label>
+            <Form.Control type="password" placeholder="Password" />
+          </Form.Group>
+          <Form.Group controlId="formBasicCheckbox">
+            <Form.Check type="checkbox" label="Check me out" />
+          </Form.Group>
+          <Button variant="primary" type="submit">
+            Submit
+          </Button>
+          <Button variant="primary" type="submit" onClick={this.loginWithGoogle}> 
+            Login With Google
+          </Button>
+        </Form>
         <form id="login-form" onSubmit={this.handleLogin}>
           <label htmlFor="username">Username</label>
           <input
