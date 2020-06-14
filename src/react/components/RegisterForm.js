@@ -25,7 +25,7 @@ class RegisterForm extends React.Component {
     return (
       <React.Fragment>
         <Form onSubmit={this.handleRegister}>
-          <Form.Group controlId="formBasicEmail">
+          <Form.Group controlId="formbasicUsername">
             <Form.Label>User Name</Form.Label>
             <Form.Control
               type="text"
@@ -37,7 +37,7 @@ class RegisterForm extends React.Component {
             />
           </Form.Group>
 
-          <Form.Group controlId="formBasicPassword">
+          <Form.Group>
             <Form.Label>Display Name</Form.Label>
             <Form.Control
               type="text"
@@ -58,44 +58,14 @@ class RegisterForm extends React.Component {
               onChange={this.handleChange}
             />
           </Form.Group>
-
           <Button variant="primary" type="submit">
             Submit
           </Button>
         </Form>
-
-        <form id="register-form" onSubmit={this.handleRegister}>
-          <label htmlFor="username"> Set Username</label>
-          <input
-            type="text"
-            name="username"
-            autoFocus
-            required
-            onChange={this.handleChange}
-          />
-          <label htmlFor="displayname"> Set Display Name</label>
-          <input
-            type="text"
-            name="displayName"
-            autoFocus
-            required
-            onChange={this.handleChange}
-          />
-          <label htmlFor="password">Set Password</label>
-          <input
-            type="password"
-            name="password"
-            required
-            onChange={this.handleChange}
-          />
-          <button type="submit" disabled={loading}>
-            Register
-          </button>
-          Already have a login ?
-          <NavLink to="/" activeClassName="selected">
-            Login Form
-          </NavLink>
-        </form>
+        Already have a login ?
+        <NavLink to="/" activeClassName="selected">
+          Login Form
+        </NavLink>
         {loading && <Spinner name="circle" color="blue" />}
         {error && <p style={{ color: "red" }}>{error.message}</p>}
       </React.Fragment>
