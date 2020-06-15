@@ -41,11 +41,11 @@ class MessageFeed extends Component {
       <>
         <Menu isAuthenticated={this.props.isAuthenticated} />
         <NewMessages />
-        <h1 id="header-center">Message Feed WITH Messages</h1>
+        <h1 id="header-center">Message Feed</h1>
         {this.props.messages.map((message) => (
           <React.Fragment key={message.id}>
-            <div id="center" key={message.id}>
-              <Card style={{ width: "40rem" }}>
+            <div  key={message.id}>
+              <Card id="center" style={{ width: "40rem" }}>
                 <h6>Author: {message.username}</h6>
                 <Card.Text>Text: {message.text}</Card.Text>
                 <p>Date: {message.createdAt}</p>
