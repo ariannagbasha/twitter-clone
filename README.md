@@ -30,13 +30,13 @@ _We are also interested in establishing the look and feel of our visual brand ea
 
 # Kwitter Rubric
 
-1. [Scrum Board](https://trello.com/b/zwXy54V5/kwitter)
+1. [Scrum Board](https://trello.com/b/zwXy54V5/kwitter)-10 pts
    - Scrum Roles
      - Shanquel: Product Owner
      - Gabby: Scrum master
      - Ralph: QA Tester
      - Dorian: QA Tester
-2. API Endpoints Completed(10/10)
+2. API Endpoints Completed(10/10)-20 pts
    - GET AUTH GOOGLE LOGIN
    - POST AUTH LOGIN
    - GET AUTH LOGOUT
@@ -47,7 +47,7 @@ _We are also interested in establishing the look and feel of our visual brand ea
    - DELETE MESSAGES
    - POST LIKES
    - DELETE LIKES
-3. TEAMWORK:
+3. TEAMWORK:-20 pts
    - DORIAN COMPLETED: MOCK UP & DESIGN PROFILE & DESIGN MESSAGE FEED
    - RALPH COMPLETED: ADVANCED FEATURE GOOGLE LOGIN & DESIGN NAV & DESIGN HEADER & DESIGN REGISTER FORM
    - SHANQUEL COMPLETED: GET MESSAGES & POST MESSAGES & DELETE MESSAGES & POST LIKES & DELETE LIKES & TRELLO BOARD
@@ -56,12 +56,12 @@ _We are also interested in establishing the look and feel of our visual brand ea
 5. UI/ UX DESIGN:
    - Mockups:
    - Look at the moment:
-6. DEMO PARCIPTATION:
+6. DEMO PARCIPTATION:- 5 pts
    - [] Dorian
    - [] Ralph
    - [] Shanquel
    - [] Gabby
-7. RETROSPECTIVE NOTES:
+7. RETROSPECTIVE NOTES:-5pts
    - We didn't actually start this project until a week after it was assigned
    - We didn't get complete as many API endpoints as we wanted
    - The design barely looks like the MOCKUP
@@ -69,7 +69,7 @@ _We are also interested in establishing the look and feel of our visual brand ea
    - We have assigned roles, pretty well on the basis of everyone's strengths
    - The team was well-balanced
    - Team AWESOME OUT!
-8. ADVANCED FEATURE: GOOGLE LOGIN
+8. ADVANCED FEATURE: GOOGLE LOGIN-5pts
 
 ## Submission
 
