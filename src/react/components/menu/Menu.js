@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import "./Menu.css";
 import { connect } from "react-redux";
 import { logout } from "../../../redux";
-import { Nav} from "react-bootstrap";
 
 class Menu extends React.Component {
   handleLogout = event => {

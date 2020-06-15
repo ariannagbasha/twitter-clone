@@ -26,7 +26,7 @@ class RegisterForm extends React.Component {
       <React.Fragment>
         <Form onSubmit={this.handleRegister}>
           <Form.Group controlId="formbasicUsername">
-            <Form.Label>User Name</Form.Label>
+            {/* <Form.Label>User Name</Form.Label> */}
             <Form.Control
               type="text"
               placeholder="Username"
@@ -38,7 +38,7 @@ class RegisterForm extends React.Component {
           </Form.Group>
 
           <Form.Group>
-            <Form.Label>Display Name</Form.Label>
+            {/* <Form.Label>Display Name</Form.Label> */}
             <Form.Control
               type="text"
               placeholder="Display name"
@@ -49,7 +49,7 @@ class RegisterForm extends React.Component {
             />
           </Form.Group>
           <Form.Group controlId="formBasicPassword">
-            <Form.Label>Password</Form.Label>
+            {/* <Form.Label>Password</Form.Label> */}
             <Form.Control
               type="password"
               placeholder="Password"
