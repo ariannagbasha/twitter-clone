@@ -51,17 +51,16 @@ class MessageFeed extends Component {
                 <p>Date: {message.createdAt}</p>
                 <p>likes: {message.likes.length}</p>
 
-                <Button onClick={this.handleLikes(message.id)}>
-                  Like Message
+                <Button variant="primary" onClick={this.handleLikes(message.id)}>
+                  {this.handleLikes(message.id) ? "Like"  : "Unlike"}
                 </Button>
                 {message.username === this.props.user.username && (
-                  <button
-                    onClick={event =>
+                  <Button onClick={event =>
                       this.props.deleteMessages(event, message.id)
                     }
                   >
                     Delete Message
-                  </button>
+                  </Button>
                 )}
               </Card>
             </div>

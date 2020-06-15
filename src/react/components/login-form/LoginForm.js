@@ -47,7 +47,7 @@ class LoginForm extends React.Component {
         <Form onSubmit={this.handleLogin}>
           <Form.Group controlId="formBasicUsername">
             {/* <Form.Label>Username</Form.Label> */}
-            <Form.Control size="sm" type="text" name="username" autoFocus required onChange={this.handleChange} placeholder="Username" />
+            <Form.Control type="text" name="username" autoFocus required onChange={this.handleChange} placeholder="Username" />
           </Form.Group>
           <Form.Group controlId="formBasicPassword">
             {/* <Form.Label>Password</Form.Label> */}
