@@ -6,7 +6,8 @@ import { getMessages } from "../../../redux/Messages/getMessages";
 import NewMessages from "./NewMessages";
 import { deleteMessages } from "../../../redux/Messages/deleteMessages";
 import { handleLike, handleUnlike } from "../../../redux/Messages/likeMessages";
-import { Card } from "react-bootstrap";
+import { Card, Button } from "react-bootstrap";
+import "./MessageFeed.css";
 
 class MessageFeed extends Component {
   state = {
@@ -38,38 +39,31 @@ class MessageFeed extends Component {
     }
     return (
       <>
-        <Card style={{ width: "18rem" }}>
-          <Card.Img variant="top" src="holder.js/100px180" />
-          <Card.Body>
-            <Card.Title>Card Title</Card.Title>
-            <Card.Text>
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </Card.Text>
-          </Card.Body>
-        </Card>
         <Menu isAuthenticated={this.props.isAuthenticated} />
         <NewMessages />
-        <h1>Message Feed WITH Messages</h1>
+        <h1 id="header-center">Message Feed WITH Messages</h1>
         {this.props.messages.map(message => (
           <React.Fragment key={message.id}>
-            <div key={message.id}>
-              <h6>Author: {message.username}</h6>
-              <p>Text: {message.text}</p>
-              <p>Date: {message.createdAt}</p>
-              <p>likes: {message.likes.length}</p>
-              <button onClick={this.handleLikes(message.id)}>
-                Like Message
-              </button>
-              {message.username === this.props.user.username && (
-                <button
-                  onClick={event =>
-                    this.props.deleteMessages(event, message.id)
-                  }
-                >
-                  Delete Message
-                </button>
-              )}
+            <div id="center" key={message.id}>
+              <Card style={{ width: "40rem" }}>
+                <h6>Author: {message.username}</h6>
+                <Card.Text>Text: {message.text}</Card.Text>
+                <p>Date: {message.createdAt}</p>
+                <p>likes: {message.likes.length}</p>
+
+                <Button onClick={this.handleLikes(message.id)}>
+                  Like Message
+                </Button>
+                {message.username === this.props.user.username && (
+                  <button
+                    onClick={event =>
+                      this.props.deleteMessages(event, message.id)
+                    }
+                  >
+                    Delete Message
+                  </button>
+                )}
+              </Card>
             </div>
           </React.Fragment>
         ))}

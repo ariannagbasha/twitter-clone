@@ -18,3 +18,8 @@
   text-decoration: underline;
   cursor: pointer;
 }
+
+
+#kwitter-title {
+ text-align: left;
+}
