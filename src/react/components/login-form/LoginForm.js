@@ -44,10 +44,10 @@ class LoginForm extends React.Component {
     const { loading, error } = this.props;
     return (
       <React.Fragment>
-        <Form onSubmit={this.handleLogin} className="my-auto">
+        <Form id="login-form" onSubmit={this.handleLogin}>
           <Form.Group controlId="formBasicUsername">
             {/* <Form.Label>Username</Form.Label> */}
-            <Form.Control size="sm" type="text" name="username" autoFocus required onChange={this.handleChange} placeholder="Username" />
+            <Form.Control width="100px" type="text" name="username" autoFocus required onChange={this.handleChange} placeholder="Username" />
           </Form.Group>
           <Form.Group controlId="formBasicPassword">
             {/* <Form.Label>Password</Form.Label> */}

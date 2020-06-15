@@ -13,14 +13,14 @@ class MessageFeed extends Component {
   state = {
     messages: [],
     loading: false,
-    messageId: 0
+    messageId: 0,
   };
 
   componentDidMount() {
     this.props.getMessages();
   }
 
-  handleLikes = id => event => {
+  handleLikes = (id) => (event) => {
     console.log(id);
     this.props.handleLike(id);
   };
@@ -41,8 +41,8 @@ class MessageFeed extends Component {
       <>
         <Menu isAuthenticated={this.props.isAuthenticated} />
         <NewMessages />
-        <h1 id="header-center">Message Feed WITH Messages</h1>
-        {this.props.messages.map(message => (
+        <h1 id="header-center">Message Feed</h1>
+        {this.props.messages.map((message) => (
           <React.Fragment key={message.id}>
             <div id="center" key={message.id}>
               <Card style={{ width: "50rem" }}>
@@ -51,17 +51,20 @@ class MessageFeed extends Component {
                 <p>Date: {message.createdAt}</p>
                 <p>likes: {message.likes.length}</p>
 
-                <Button onClick={this.handleLikes(message.id)}>
-                  Like Message
+                <Button
+                  variant="primary"
+                  onClick={this.handleLikes(message.id)}
+                >
+                  {this.handleLikes(message.id) ? "Like" : "Unlike"}
                 </Button>
                 {message.username === this.props.user.username && (
-                  <button
-                    onClick={event =>
+                  <Button
+                    onClick={(event) =>
                       this.props.deleteMessages(event, message.id)
                     }
                   >
                     Delete Message
-                  </button>
+                  </Button>
                 )}
               </Card>
             </div>
@@ -72,11 +75,11 @@ class MessageFeed extends Component {
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     //this is where we connect the info from our store to our react props
     messages: state.messages.getMessages.result,
-    user: state.auth.login.result
+    user: state.auth.login.result,
   };
 };
 
@@ -85,7 +88,7 @@ const mapDispatchToProps = {
   getMessages,
   deleteMessages,
   handleLike,
-  handleUnlike
+  handleUnlike,
 };
 export default connect(
   mapStateToProps,
