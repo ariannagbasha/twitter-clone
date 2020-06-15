@@ -24,7 +24,7 @@ class RegisterForm extends React.Component {
     const { loading, error } = this.props;
     return (
       <React.Fragment>
-        <Form onSubmit={this.handleRegister}>
+        <Form id="register-form" onSubmit={this.handleRegister}>
           <Form.Group controlId="formbasicUsername">
             {/* <Form.Label>User Name</Form.Label> */}
             <Form.Control
