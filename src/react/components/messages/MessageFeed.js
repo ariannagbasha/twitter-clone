@@ -45,7 +45,7 @@ class MessageFeed extends Component {
         {this.props.messages.map(message => (
           <React.Fragment key={message.id}>
             <div id="center" key={message.id}>
-              <Card style={{ width: "40rem" }}>
+              <Card style={{ width: "50rem" }}>
                 <h6>Author: {message.username}</h6>
                 <Card.Text>Text: {message.text}</Card.Text>
                 <p>Date: {message.createdAt}</p>

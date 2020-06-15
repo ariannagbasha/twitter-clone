@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "./Menu.css";
 import { connect } from "react-redux";
 import { logout } from "../../../redux";
-import { Nav } from "react-bootstrap";
+import { Nav, Navbar } from "react-bootstrap";
 
 class Menu extends React.Component {
   handleLogout = event => {
@@ -13,20 +13,24 @@ class Menu extends React.Component {
 
   render() {
     return (
+      
+  <Navbar bg="dark" variant="dark">
       <Nav id="menu">
         <Nav.Item id="menu">
-          <h1 id="kwitter-title">Kwitter</h1>
+          <Navbar.Brand id="kwitter-title">Kwitter</Navbar.Brand>
           {this.props.isAuthenticated && (
             <div id="menu-links">
-              <Link to="/messagefeed">Message Feed</Link>
-              <Link to="/profiles/:username">Profile</Link>
-              <Link to="/" onClick={this.handleLogout}>
+              <Nav.Link to="/messagefeed">Message Feed</Nav.Link>
+              <Nav.Link to="/profiles/:username">Profile</Nav.Link>
+              <Nav.Link to="/" onClick={this.handleLogout}>
                 Logout
-              </Link>
+              </Nav.Link>
             </div>
           )}
         </Nav.Item>
       </Nav>
+      </Navbar>
+
     );
   }
 }

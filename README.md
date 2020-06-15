@@ -28,17 +28,48 @@ _We are also interested in establishing the look and feel of our visual brand ea
 <!--An optional starter scaffolding is provided [here.](https://gitlab.com/kenzie-academy/se/fe/final-projects/assessment---kwitter-frontend) An overview of the -->
 <!--starting scaffolding architecture can be found in [this dependency graph](https://kenzie-academy.gitlab.io/se/fe/final-projects/assessment---kwitter-frontend/dependencygraph.html)-->
 
-## Getting Started...
+# Kwitter Rubric
 
-1. Create a Scrum board (trello, github/gitlab project board, etc.) 
-    - [trello scrum example](https://trello.com/b/0xzkRjTH/scrum-project-management-board)
-2. Plan out your first week sprint goals.
-3. Familiarize yourself with [the API](https://kwitter-api.herokuapp.com/docs/)
-4. Create mock ups for possible pages
-5. Break each page out into possible components
-6. Discuss API endpoints you'll hit, how you'll store data in your Redux store, and which components will need access to the store
-7. Discuss and research what component library you would like to use and explore its components
-8. Begin creating and using components to establish a general foundation for your app
+1. [Scrum Board](https://trello.com/b/zwXy54V5/kwitter)-10 pts
+   - Scrum Roles
+     - Shanquel: Product Owner
+     - Gabby: Scrum master
+     - Ralph: QA Tester
+     - Dorian: QA Tester
+2. API Endpoints Completed(10/10)-20 pts
+   - GET AUTH GOOGLE LOGIN
+   - POST AUTH LOGIN
+   - GET AUTH LOGOUT
+   - POST USERS
+   - GET USERS USERNAME
+   - GET MESSAGES
+   - POST MESSAGES
+   - DELETE MESSAGES
+   - POST LIKES
+   - DELETE LIKES
+3. TEAMWORK:-20 pts
+   - DORIAN COMPLETED: MOCK UP & DESIGN PROFILE & DESIGN MESSAGE FEED
+   - RALPH COMPLETED: ADVANCED FEATURE GOOGLE LOGIN & DESIGN NAV & DESIGN HEADER & DESIGN REGISTER FORM
+   - SHANQUEL COMPLETED: GET MESSAGES & POST MESSAGES & DELETE MESSAGES & POST LIKES & DELETE LIKES & TRELLO BOARD
+   - GABBY COMPLETED: GET AUTH GOOGLE LOGIN & POST AUTH LOGIN & GET AUTH LOGOUT & POST USERS GET USERS USERNAME & DESIGN LOGIN FORM
+4. COMPONENT ARCHITECTURE:
+5. UI/ UX DESIGN:
+   - Mockups:
+   - Look at the moment:
+6. DEMO PARCIPTATION:- 5 pts
+   - [] Dorian
+   - [] Ralph
+   - [] Shanquel
+   - [] Gabby
+7. RETROSPECTIVE NOTES:-5pts
+   - We didn't actually start this project until a week after it was assigned
+   - We didn't get complete as many API endpoints as we wanted
+   - The design barely looks like the MOCKUP
+   - Our Teamwork and communication was excellent we were unified
+   - We have assigned roles, pretty well on the basis of everyone's strengths
+   - The team was well-balanced
+   - Team AWESOME OUT!
+8. ADVANCED FEATURE: GOOGLE LOGIN-5pts
 
 ## Submission
 
