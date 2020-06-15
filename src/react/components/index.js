@@ -1,3 +1,3 @@
-export { default as LoginForm } from "./LoginForm";
-export { default as RegisterForm } from "./RegisterForm";
-export { default as Menu } from "./Menu";
+export { default as LoginForm } from "./login-form/LoginForm";
+export { default as RegisterForm } from "./register-form/RegisterForm";
+export { default as Menu } from "./menu/Menu";

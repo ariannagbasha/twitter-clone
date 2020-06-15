@@ -1,7 +1,7 @@
 import React from "react";
 import { Menu } from "./components";
 import { userIsAuthenticated } from "./HOCs";
-import UserAccount from "./components/UserAccount";
+import UserAccount from "./components/user-account/UserAccount";
 
 class Profile extends React.Component {
   render() {
