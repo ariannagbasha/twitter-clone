@@ -13,24 +13,24 @@ class Menu extends React.Component {
 
   render() {
     return (
-      
-  <Navbar bg="dark" variant="dark">
-      <Nav id="menu">
-        <Nav.Item id="menu">
-          <Navbar.Brand id="kwitter-title">Kwitter</Navbar.Brand>
-          {this.props.isAuthenticated && (
-            <div id="menu-links">
-              <Nav.Link to="/messagefeed">Message Feed</Nav.Link>
-              <Nav.Link to="/profiles/:username">Profile</Nav.Link>
-              <Nav.Link to="/" onClick={this.handleLogout}>
-                Logout
-              </Nav.Link>
-            </div>
-          )}
-        </Nav.Item>
-      </Nav>
-      </Navbar>
-
+      <div id="position">
+        <Navbar>
+          <Nav id="menu">
+            <Nav.Item id="menu">
+              <Navbar.Brand id="kwitter-title">Kwitter</Navbar.Brand>
+              {this.props.isAuthenticated && (
+                <div id="menu-links">
+                  <Link to="/messagefeed">Message Feed</Link>
+                  <Link to="/profiles/:username">Profile</Link>
+                  <Link to="/" onClick={this.handleLogout}>
+                    Logout
+                  </Link>
+                </div>
+              )}
+            </Nav.Item>
+          </Nav>
+        </Navbar>
+      </div>
     );
   }
 }

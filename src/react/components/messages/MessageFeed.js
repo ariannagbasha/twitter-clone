@@ -13,14 +13,14 @@ class MessageFeed extends Component {
   state = {
     messages: [],
     loading: false,
-    messageId: 0,
+    messageId: 0
   };
 
   componentDidMount() {
     this.props.getMessages();
   }
 
-  handleLikes = (id) => (event) => {
+  handleLikes = id => event => {
     console.log(id);
     this.props.handleLike(id);
   };
@@ -42,7 +42,7 @@ class MessageFeed extends Component {
         <Menu isAuthenticated={this.props.isAuthenticated} />
         <NewMessages />
         <h1 id="header-center">Message Feed</h1>
-        {this.props.messages.map((message) => (
+        {this.props.messages.map(message => (
           <React.Fragment key={message.id}>
             <div id="center" key={message.id}>
               <Card style={{ width: "50rem" }}>
@@ -59,7 +59,7 @@ class MessageFeed extends Component {
                 </Button>
                 {message.username === this.props.user.username && (
                   <Button
-                    onClick={(event) =>
+                    onClick={event =>
                       this.props.deleteMessages(event, message.id)
                     }
                   >
@@ -75,11 +75,11 @@ class MessageFeed extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
     //this is where we connect the info from our store to our react props
     messages: state.messages.getMessages.result,
-    user: state.auth.login.result,
+    user: state.auth.login.result
   };
 };
 
@@ -88,7 +88,7 @@ const mapDispatchToProps = {
   getMessages,
   deleteMessages,
   handleLike,
-  handleUnlike,
+  handleUnlike
 };
 export default connect(
   mapStateToProps,

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { newMessages } from "../../../redux/Messages/NewMessages";
+import { Form, FormControl } from "react-bootstrap";
 
 class NewMessages extends Component {
   state = {
@@ -20,18 +21,20 @@ class NewMessages extends Component {
   render() {
     return (
       <>
-        <form id="NewMessages">
-          <label htmlFor="message">Message</label>
-          <input
+        <Form id="NewMessages">
+          <Form.Label htmlFor="message">What's on your mind?</Form.Label>
+          <Form.Control
             type="text"
+            placeholder="New Messsage"
             name="message"
             autoFocus
             required
             onChange={this.handleChange}
           />
-        </form>
+          <Form.Text className="text-muted"></Form.Text>
+        </Form>
         <button onClick={this.handleMessage} type="submit">
-          New Message Posted
+          Post New Message
         </button>
       </>
     );

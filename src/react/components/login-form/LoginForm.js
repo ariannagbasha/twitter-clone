@@ -6,12 +6,13 @@ import { getMessages } from "../../../redux/Messages/getMessages";
 import { NavLink } from "react-router-dom";
 import { Form, Button } from "react-bootstrap";
 
+
 import "./LoginForm.css";
 
 class LoginForm extends React.Component {
   state = { username: "", password: "" };
 
-  handleLogin = (e) => {
+  handleLogin = e => {
     e.preventDefault();
     this.props.login(this.state);
     this.props.getMessages();
@@ -24,7 +25,7 @@ class LoginForm extends React.Component {
       "_blank",
       "width=500,height=500"
     );
-    authWindow.window.opener.onmessage = (event) => {
+    authWindow.window.opener.onmessage = event => {
       // Whenever that window recieves a messages, it will check everything out and make sure it is sent back
       authWindow.close();
       if (!event || !event.data || !event.data.token) {
@@ -36,7 +37,7 @@ class LoginForm extends React.Component {
     };
   };
 
-  handleChange = (e) => {
+  handleChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
 
@@ -44,40 +45,58 @@ class LoginForm extends React.Component {
     const { loading, error } = this.props;
     return (
       <React.Fragment>
-        <Form id="login-form" onSubmit={this.handleLogin}>
-          <Form.Group controlId="formBasicUsername">
-            {/* <Form.Label>Username</Form.Label> */}
-            <Form.Control width="100px" type="text" name="username" autoFocus required onChange={this.handleChange} placeholder="Username" />
-          </Form.Group>
-          <Form.Group controlId="formBasicPassword">
-            {/* <Form.Label>Password</Form.Label> */}
-            <Form.Control type="password" name="password" required onChange={this.handleChange} placeholder="Password" />
-          </Form.Group>
-          <Button variant="primary" type="submit" disabled={loading}>
-            Submit
-          </Button>
-          <br/>
-          <Button variant="primary" type="submit" onClick={this.loginWithGoogle}> 
-            Login With Google
-          </Button>
-        </Form>
+          <Form id="login-form" onSubmit={this.handleLogin}>
+            <Form.Group controlId="formBasicUsername">
+              {/* <Form.Label>Username</Form.Label> */}
+              <Form.Control
+                width="100px"
+                type="text"
+                name="username"
+                autoFocus
+                required
+                onChange={this.handleChange}
+                placeholder="Username"
+              />
+            </Form.Group>
+            <Form.Group controlId="formBasicPassword">
+              {/* <Form.Label>Password</Form.Label> */}
+              <Form.Control
+                type="password"
+                name="password"
+                required
+                onChange={this.handleChange}
+                placeholder="Password"
+              />
+            </Form.Group>
+            <Button variant="primary" type="submit" disabled={loading}>
+              Submit
+            </Button>
+            <br />
+            <Button
+              variant="primary"
+              type="submit"
+              onClick={this.loginWithGoogle}
+            >
+              Login With Google
+            </Button>
+          </Form>
           Not Registered Yet ?
-          <br/>
+          <br />
           <NavLink to="/registerform" activeClassName="selected">
             Register Form
           </NavLink>
-        {loading && <Spinner name="circle" color="blue" />}
-        {error && <p style={{ color: "red" }}>{error.message}</p>}
+          {loading && <Spinner name="circle" color="blue" />}
+          {error && <p style={{ color: "red" }}>{error.message}</p>}
       </React.Fragment>
     );
   }
 }
 
 export default connect(
-  (state) => ({
+  state => ({
     result: state.auth.login.result,
     loading: state.auth.login.loading,
-    error: state.auth.login.error,
+    error: state.auth.login.error
   }),
   { login, getMessages, googleLogin }
 )(LoginForm);
