@@ -5,8 +5,6 @@ import { login, googleLogin } from "../../../redux";
 import { getMessages } from "../../../redux/Messages/getMessages";
 import { NavLink } from "react-router-dom";
 import { Form, Button } from "react-bootstrap";
-
-
 import "./LoginForm.css";
 
 class LoginForm extends React.Component {
@@ -45,6 +43,8 @@ class LoginForm extends React.Component {
     const { loading, error } = this.props;
     return (
       <React.Fragment>
+        {/* <div id="box"> */}
+        <div id="middle">
           <Form id="login-form" onSubmit={this.handleLogin}>
             <Form.Group controlId="formBasicUsername">
               {/* <Form.Label>Username</Form.Label> */}
@@ -71,7 +71,6 @@ class LoginForm extends React.Component {
             <Button variant="primary" type="submit" disabled={loading}>
               Submit
             </Button>
-            <br />
             <Button
               variant="primary"
               type="submit"
@@ -80,13 +79,17 @@ class LoginForm extends React.Component {
               Login With Google
             </Button>
           </Form>
-          Not Registered Yet ?
-          <br />
-          <NavLink to="/registerform" activeClassName="selected">
-            Register Form
-          </NavLink>
+
+          <div id="link">
+            <h6>Not Registered Yet ?</h6>
+            <NavLink to="/registerform" activeClassName="selected">
+              Register Form
+            </NavLink>
+          </div>
           {loading && <Spinner name="circle" color="blue" />}
           {error && <p style={{ color: "red" }}>{error.message}</p>}
+          {/* </div> */}
+        </div>
       </React.Fragment>
     );
   }

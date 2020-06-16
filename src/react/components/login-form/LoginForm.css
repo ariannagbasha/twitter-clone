@@ -1,8 +1,17 @@
+#middle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-style: 5px white;
+}
+
 
 #login-form {
   display: flex;
   flex-direction: column;
-  max-width: 25em;
-  
+}
 
+.link {
+  display: flex;
+  flex-direction: column;
 }

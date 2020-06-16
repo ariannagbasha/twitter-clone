@@ -1,4 +1,7 @@
-/* * {
-  background-image: url("https://images.unsplash.com/photo-1541422348463-9bc715520974?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1400&q=60");
-  background-color: #cccccc;
-} */
+h2 {
+    display: flex;
+    justifu-content: center;
+    color: white;
+    font-family: 'Lobster', cursive;
+    font-size: 25px;
+}
