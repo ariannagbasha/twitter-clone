@@ -7,9 +7,11 @@ import {
   asyncCases,
   createActions,
   createReducer
-} from "./helpers";
+} from "../helpers";
 
 const url = domain + "/auth";
+
+// Finished Login fixed by Vince
 
 const LOGIN = createActions("login");
 export const login = loginData => dispatch => {
@@ -25,19 +27,24 @@ export const login = loginData => dispatch => {
     .catch(err => Promise.reject(dispatch(LOGIN.FAIL(err))));
 };
 
+export const googleLogin = loginData => (dispatch) => {
+  dispatch(LOGIN.SUCCESS(loginData));
+};
+
 const LOGOUT = createActions("logout");
 export const logout = () => (dispatch, getState) => {
   dispatch(LOGOUT.START());
 
   const token = getState().auth.login.result.token;
-
+  dispatch(LOGOUT.SUCCESS({}))
   return fetch(url + "/logout", {
     method: "GET",
     headers: { Authorization: "Bearer " + token, ...jsonHeaders }
   })
     .then(handleJsonResponse)
-    .then(result => dispatch(LOGOUT.SUCCESS(result)))
-    .catch(err => Promise.reject(dispatch(LOGOUT.FAIL(err))));
+    .catch( () => {
+      localStorage.clear()
+    } );
 };
 
 export const reducers = {

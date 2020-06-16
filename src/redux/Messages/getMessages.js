@@ -8,7 +8,7 @@ import {
     createReducer
   } from "../helpers";
   
-  const url = domain + "/messages?limit=200";
+  const url = domain + "/messages?limit=10";
   
   const GETMESSAGES = createActions("getMessages");
   export const getMessages = () => dispatch => {
@@ -31,4 +31,5 @@ import {
       ...asyncCases(GETMESSAGES),
     }),
   };
+  
   
