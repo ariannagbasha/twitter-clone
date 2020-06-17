@@ -13,7 +13,8 @@ class MessageFeed extends Component {
   state = {
     messages: [],
     loading: false,
-    messageId: 0
+    messageId: 0,
+    likes: false,
   };
 
   componentDidMount() {
@@ -23,6 +24,7 @@ class MessageFeed extends Component {
   handleLikes = id => event => {
     console.log(id);
     this.props.handleLike(id);
+    this.setState({likes: !this.state.likes})
   };
 
   render() {
