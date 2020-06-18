@@ -59,16 +59,13 @@ class MessageFeed extends Component {
                 >
                   {this.handleLikes(message.id) ? "Like" : "Unlike"}
                 </Button>
-                {message.username === this.props.user.username && (
-                  <Button
-                    onClick={event =>
-                      this.props.deleteMessages(event, message.id)
-                    }
-                  >
+               
+              </Card>
+              {message.username === this.props.user.username && (
+                  <Button onClick={event =>this.props.deleteMessages(event, message.id)}>
                     Delete Message
                   </Button>
                 )}
-              </Card>
             </div>
           </React.Fragment>
         ))}
