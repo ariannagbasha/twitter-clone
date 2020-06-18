@@ -24,6 +24,7 @@ class RegisterForm extends React.Component {
     const { loading, error } = this.props;
     return (
       <React.Fragment>
+        <div id="middle">
         <Form id="register-form" onSubmit={this.handleRegister}>
           <Form.Group controlId="formbasicUsername">
             {/* <Form.Label>User Name</Form.Label> */}
@@ -68,6 +69,7 @@ class RegisterForm extends React.Component {
         </NavLink>
         {loading && <Spinner name="circle" color="blue" />}
         {error && <p style={{ color: "red" }}>{error.message}</p>}
+        </div>
       </React.Fragment>
     );
   }

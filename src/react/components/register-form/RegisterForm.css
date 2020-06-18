@@ -1,5 +1,13 @@
+#middle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-style: 5px white;
+}
+
+
 #register-form {
     display: flex;
     flex-direction: column;
     max-width: 20em;
-  }
+}
